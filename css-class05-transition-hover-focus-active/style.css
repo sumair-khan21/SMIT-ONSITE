@@ -1,0 +1,71 @@
+/* h1{
+    background-color: red;
+} */
+/* ul{
+    list-style-image: url('https://png.pngtree.com/png-vector/20190725/ourmid/pngtree-vector-star-icon-png-image_1577370.jpg');
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+li{
+    margin: 10px 0px 0px 0px;
+
+}
+
+ul > li{
+    list-style-type: upper-roman;
+    list-style-position: inside; */
+
+    /* list-style: upper-roman inside; */
+/* } */
+
+/* .one{
+    empty-cells: show;
+    border-collapse: separate;
+    border-spacing: 10px 20px   ;
+
+}
+
+.one:hover{
+    empty-cells:hide ;
+}
+
+tr > td{
+    border: 1px solid black;
+} */
+
+
+
+/* #main{
+    background-color: aqua;
+    padding: 10px;
+    height: 60px;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+
+}
+li{
+    list-style: none;
+    cursor: pointer;
+} */
+/* li:active{
+    background-color: blue;
+} */
+ /* li:hover{
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: underline;
+ } */
+ /* li:focus{
+    border: 2px solid red;
+ } */
+/* li{
+    transition: 0.6s ease-in-out;
+} */

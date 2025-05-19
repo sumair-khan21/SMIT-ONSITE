@@ -1,0 +1,266 @@
+/* Reset and Base Styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    overflow: hidden;
+}
+
+
+.game-container {
+    width: 1000px;
+    height: 700px;
+    margin: 20px auto;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    border: 4px solid #30475e;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.health-bars {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 4px solid #30475e;
+    position: relative;
+    z-index: 1;
+}
+
+.health-bar {
+    width: 350px;
+    height: 35px;
+    border: 3px solid #f05454;
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.health-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(255,255,255,0.1) 0%,
+        rgba(255,255,255,0.2) 50%,
+        rgba(255,255,255,0.1) 100%);
+    animation: healthShine 2s linear infinite;
+}
+
+.health-fill {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff0000, #ff4444);
+    transition: width 0.3s ease-out;
+    position: relative;
+}
+
+
+.timer {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid #ffd700;
+    animation: timerPulse 1s infinite;
+}
+
+
+#gameArea {
+    width: 100%;
+    height: calc(100% - 65px);
+    background: url('https://images.unsplash.com/photo-1601645191163-3fc0d5d64e35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+#gameArea::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+}
+
+
+.character {
+    width: 120px;
+    height: 200px;
+    position: absolute;
+    bottom: 50px;
+    transition: all 0.1s ease-out;
+    filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.5));
+}
+
+#player1 {
+    left: 100px;
+    background: url('https://i.imgur.com/8G6XOZg.png') no-repeat;
+    background-size: contain;
+}
+
+#player2 {
+    right: 100px;
+    background: url('https://i.imgur.com/8G6XOZg.png') no-repeat;
+    background-size: contain;
+    transform: scaleX(-1);
+}
+
+
+.character.punch {
+    animation: punch 0.2s cubic-bezier(.36,.07,.19,.97);
+}
+
+.character.kick {
+    animation: kick 0.3s cubic-bezier(.36,.07,.19,.97);
+}
+
+.character.hit {
+    animation: hit 0.2s ease-in-out;
+}
+
+
+.controls {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+    display: flex;
+    gap: 50px;
+    border: 2px solid #30475e;
+}
+
+.controls div {
+    padding: 15px;
+}
+
+.controls h3 {
+    color: #ffd700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.controls p {
+    color: #fff;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+
+@keyframes punch {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(30px) rotate(5deg); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes kick {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(40px) rotate(-15deg); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes hit {
+    0% { filter: brightness(2) contrast(2); transform: translateX(-10px); }
+    25% { filter: brightness(2) contrast(1.5); transform: translateX(10px); }
+    50% { filter: brightness(1.5) contrast(2); transform: translateX(-5px); }
+    100% { filter: brightness(1) contrast(1); transform: translateX(0); }
+}
+
+@keyframes healthShine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes timerPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+
+.hitbox {
+    width: 60px;
+    height: 120px;
+    position: absolute;
+    top: 40px;
+    left: 30px;
+    border: 2px solid rgba(255, 0, 0, 0);
+    transition: border-color 0.1s;
+}
+
+.character:hover .hitbox {
+    border-color: rgba(255, 0, 0, 0.3);
+}
+
+
+@media (max-width: 1024px) {
+    .game-container {
+        width: 90%;
+        height: 600px;
+    }
+    
+    .health-bar {
+        width: 250px;
+    }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+.character::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 10px;
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    filter: blur(4px);
+}
+
+
+.health-bar span {
+    position: absolute;
+    top: -25px;
+    left: 0;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+@keyframes winner {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.winner {
+    animation: winner 0.5s ease-in-out infinite;
+} */

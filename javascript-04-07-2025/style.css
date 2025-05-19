@@ -1,0 +1,129 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Container */
+div:first-of-type {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Section */
+#inputTodo {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.addTodo {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 25px;
+}
+
+.addTodo:hover {
+  background-color: #43a047;
+}
+
+/* Todo List */
+#todoList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Each Todo Item */
+.todo_item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafafa;
+  border-left: 5px solid #4caf50;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.text {
+  font-size: 18px;
+  color: #333;
+  flex: 1;
+  margin-right: 10px;
+  word-break: break-word;
+}
+
+/* Buttons */
+.del_btn,
+.edit_btn {
+  padding: 10px 15px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.del_btn {
+  background-color: #f44336;
+}
+
+.del_btn:hover {
+  background-color: #d32f2f;
+}
+
+.edit_btn {
+  background-color: #2196f3;
+  margin-left: 10px;
+}
+
+.edit_btn:hover {
+  background-color: #1976d2;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .todo_item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .del_btn,
+  .edit_btn {
+    width: 100%;
+    margin: 8px 0 0 0;
+  }
+
+  .edit_btn {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,23 @@
+/* p{
+    background-color: aqua;
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+     overflow-y: scroll;
+     overflow: hidden;
+
+} */
+/* CLASS WORK */
+
+div{
+    /* overflow-x: hidden ; */
+}
+p{
+    color: aliceblue;
+    width: 200%;
+    background-color: rgb(13, 14, 13);
+    padding: 12px;
+    overflow: hidden;
+    /* overflow-y: scroll; */
+
+}

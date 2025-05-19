@@ -1,0 +1,11 @@
+/* bootstrap */
+*{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    background-color: blue;
+}
+/* next js ekk frame work hy is m sb kuch use kr sakhte ho */
+/* library m bs components hote hain is m functionallity nhi laga sakhte */
+/* bootstrap ya to downlaod krlo ya cdn link laga do */

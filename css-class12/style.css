@@ -1,0 +1,81 @@
+/* css variable */
+/* kam short or asam krne k liye css variable */
+/* simpple koi variable banan hy toh :root likh k bane ga  */
+
+/* :root{
+    --primary-color: rgb(0, 255, 98);
+    --secondary-color: rgb(155, 11, 143);
+    --bgColor: green;
+    --border-color: brown;
+
+} */
+/* h1{ */
+    /* --bgColor: green; ye srif h1 m chale ga */
+    /* background-color: rgb(25, 134, 134);
+    color: blue;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--bgColor);
+    background-color: var(--bgColo, pink);
+    color: var(--primary-color);
+    border: 6px solid var(--border-color);
+} */
+/* p{
+    background-color: var(--primary-color);
+    background-color: var(--primary-color , pink);
+    color: var(--secondary-color);
+    border: 7px solid var(--border-color);
+    background-color: blue;
+    color: rgb(210, 223, 223);
+    padding: 20px;
+} */
+/* .box{
+    width: 200px;
+    height: 200px;
+    background-color: blueviolet; */
+    /* border: 3px solid gold; */
+    /* text-align: center;
+    position: relative; */
+    /* animation-name: box; is m amination ka naa dena hy jaha hame amination chalnani hy */
+    /* animation-duration: .6s; */
+    /* animation-iteration-count:infinite; iska mtlb kitni dafa chalega */
+    /* animation-iteration-count:infinite; */
+    /* animation-direction: alternate; chalta hi rehta hy */
+    /* animation-direction: alternate;
+    animation-delay: 1s;
+    animation-timing-function: ease-in-out;
+    animation-timing-function: linear;
+    animation-fill-mode: backwards;
+    animation-fill-mode: forwards;
+    animation-fill-mode: both;
+    animation: box 2s linear 0s infinite alternate;
+}
+body{
+    display: flex;
+    justify-content: center; */
+    /* align-items: center; */
+    /* height: 100vh; */
+/* } */
+/* @keyframes iska kam ye hota hy k bs yaha se yaha tk dena hy bs wahi tk amination apply hogi */
+/* @keyframes box{
+    from{
+    top: 0px;
+    left: 0px;
+    }to{
+        top: 0px;
+        left: 1100px;
+   
+    }
+} */
+@keyframes box {
+    /* 0%   {background-color:red; left:0px; top:0px;} 0% per amination ye wali kam karegi */
+    /* 25%  {background-color:yellow; left:200px; top:0px;} 25% per amination ye wali kam karegi */
+    /* 50%  {background-color:blue; left:200px; top:200px;} 50% per amination ye wali kam karegi */
+    /* 75%  {background-color:green; left:0px; top:200px;} 75% per amination ye wali kam karegi */
+    /* 100% {background-color:red; left:0px; top:0px;} 100% per amination ye wali kam karegi */
+  }
+/* ------------------------------------------------------- */
+/* before after  sudo element*/
+.box1::before{
+
+}

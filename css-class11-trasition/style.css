@@ -1,0 +1,51 @@
+/* transition */
+/* starting and ending state btani parti hain */
+/* animation?? */
+/* bht saray transition mila k animation banti hain  */
+/* h1{
+    background-color: aqua;
+} */
+.box{
+    /* isme hover active ya focus lagana hy tabi work karegi */
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+    /* transition-property width height margin padding etc ye btana hota hy k kaha animation apply krni hy all ye hy jo jo property lagao ge sb per apply ho jaegi*/
+    /* transition-property: all; */
+    transition-property: width, height, background-color;
+    transition-delay: .1s;
+    transition-duration: 2s;
+    /* transition-timing-function ek hi spead m chalti hy */
+    transition-timing-function: linear; 
+    font-size: 20px;
+    text-align: center;
+    align-content: center;
+}
+.box:hover{
+    /* width: 1000px; */
+    background-color: blue;
+    /* height: 400px; */
+    /* transform: rotate(180deg); */
+    cursor: pointer;
+    /* transform:  rotate(360deg)   scale(2); */
+    /* transform:  translateX(-60px) translateY(-60px); */
+    /* transform: translate(40px,120px); */
+    /* transform: skew(20deg, 30deg); */
+    /* transform: matrix(1,2,3,4,5,6); */
+    transform: perspective(79deg);
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+/* -------------------------------------- */
+/* short hand  */
+/* property > duration delay */
+/* transition all 2s  1s*/
+/* ease in start m slow end m tez */
+/* ease out start m fast end m slow */
+/* ease linear ek hi spead m jaega */
+/* ease in out start end fast and middle slow */
+/* https://www.cssportal.com/css-cubic-bezier-generator/ for transition property related link */

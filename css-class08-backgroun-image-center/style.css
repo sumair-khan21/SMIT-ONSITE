@@ -1,0 +1,142 @@
+/* h1 {
+  background-color: red;
+} */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    color: rgb(226, 113, 113);
+    /* font-size: 80px; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.img-container {
+  /* background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  /* background-image: url('https://cdn.pixabay.com/photo/2024/03/04/16/44/barberry-8612696_640.jpg');
+  background-repeat: no-repeat; */
+  /* background-position: bottom left; */
+  /* background-position: 50% 50%; */
+  height: 100vh;
+  /* background-size: cover;
+  height: 100vh; */
+/* background-attachment: fixed; */
+  /* height: 100vh; */
+
+  background: url('https://cdn.pixabay.com/photo/2024/03/04/16/44/barberry-8612696_640.jpg') no-repeat right bottom;
+}
+
+p{
+    width: 700px;
+}
+
+.img-container img {
+  /* height: 200vh; */
+  /* display: block;
+    margin: 0px auto; */
+  /* display: grid;
+    place-items: center; */
+
+  /* object-fit: contain; */
+}
+
+
+/* --------------------------------------------------------------------------------------- */
+                                     /* OWN WORD */
+
+
+
+
+/* body {
+    width: 960px;
+    margin: 0 auto;}
+    #content {
+    overflow: auto;
+    height: 100%;}
+    #nav, #feature, #footer {
+    background-color: #efefef;
+    padding: 10px;
+    margin: 10px;}
+    .column1, .column2, .column3 {
+    background-color: #efefef;
+    width: 300px;
+    float: left;
+    margin: 10px;}
+    li {
+    display: inline;
+    padding: 5px;}
+     */
+/* ------------------------------------------------------------ */
+     /* image  */
+.hassan {
+    /* center kr rha hy */
+    /* height: 100vh; */
+    /* width: 400px; */
+    /* --------------------------------- */
+    /* display: block; */
+    /* margin: 0px auto;  0px top bottom auto se left right */
+    /* ------------------------------------- */
+    /* display: grid;
+    place-items: center; */
+}
+.hassan{
+    /* text-align: center; */
+    /* display: block; isse content pori jag le lega */
+    /* display: flex; */
+    /* justify-content: center;
+    justify-content: end;
+    align-items: center; */
+    /* position: relative; apne parents se move karega apni jaga chor dega */
+    /* right: 0; */
+    /* background-color: blueviolet; */
+    /* text-align: center; */
+    /* background-image: url("/hassan.jpeg");    */
+    /* background-size: cover;  */
+    /* background-size: contain;
+    background-size: auto; */
+    
+   /* background-position: right position bta dega kaha se start krta hy; */
+   /* background-position: left; */
+   /* background-position: center bottom phei property top to bottom phr left to right; */
+   /* short hand */
+   /* background: url("/hassan.jpeg") no-repeat right bottom; */
+    /* background-repeat: repeat-x; */
+    /* background-repeat: repeat-y; */
+    /* background-repeat: no-repeat; */
+    /* background-attachment: fixed; img fixed hogi or content move hoga*/
+    /* background-attachment: scroll content or img dono move hoga; */
+    /* text-align: center; */
+    /* 
+    width: 90vw; */
+    /* height: 90vh; */
+}
+*{
+    /* pori screen lega */
+    margin: 0px;
+    padding: 0px;
+}
+img{
+    
+     /* width: 400px;
+     height: 600px; */
+    /* object-fit: cover; pori image kr rha hy */
+    /* object-fit: contain;  size barabar kr k dekha rha hy */
+    /* object-fit: fill ye cover ki tarha kam krta hy just width barha deta hy; */
+}
+.hassan{
+    background: url("/hassan.jpeg") no-repeat ;
+    background-attachment: fixed;
+    /* object-fit: fill;
+    object-fit: contain;
+    object-fit: cover; */
+    /* width: 140vw; */
+    
+
+}

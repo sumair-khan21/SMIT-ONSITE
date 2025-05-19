@@ -1,0 +1,180 @@
+/* class work */
+/* h1{
+    background-color: red;
+} */
+ 
+body{
+    box-sizing: border-box;
+} 
+/* 
+box-sizing: border-box; ka kaam yeh hai ke kisi bhi element ka width aur height define karte waqt uska padding aur border bhi usi mein shaamil ho jaaye. Matlab agar aap kisi element ki width 100px rakhein aur box-sizing: border-box; laga dein, toh padding aur border ke saath bhi woh element 100px hi rahega. Yeh property layout ko control karne mein help karti hai aur elements ko unexpected size badhne se rokta hai.
+*/
+/* * {
+    box-sizing: border-box;
+  }
+
+  .container {
+    width: 200px;
+    padding: 20px;
+    border: 5px solid black;
+    background-color: lightblue;
+  } */
+
+/* body{
+    background-color: black;
+}  */
+/* .box-container{    
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center ;
+}
+.box{
+    width: 80px;
+    height: 80px;
+    background-color: cyan;
+    text-align: center;
+    align-content: center;
+    margin: auto;
+    padding: auto;
+    padding: 10px;
+    margin: 5px;
+    border-width: 2px;
+    border-color: rgb(175, 255, 3);
+    border-style: solid; */
+
+    /*/
+    border-top-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 12px ;
+    border-top-right-radius: 12px;
+    border : 5px solid black; 
+    border-radius: 3px;
+
+    /* border-top-color: red;
+    border-bottom-color: rgb(214, 230, 40);
+    border-left-color: green;
+    border-right-color: rgb(51, 89, 89); */
+
+     /* border-color: red green yellow blue ;
+}  */
+
+
+/* .box-1{
+    padding-top: 16px;
+    padding-left: 30px;
+    padding-right: 0px;
+    padding-bottom: 40px;
+
+    padding: 0px 30px 70px 90px;
+} */
+
+/* .box-2{
+      margin-top: 16px;
+    margin-left: 30px;
+    margin-right: 0px;
+    margin-bottom: 40px;
+
+    margin: 80px 40px 10px 20px;
+} */
+
+
+/* .box-container{
+    
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    text-align: center;
+    align-content: center;
+    border: 2px solid cornflowerblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.box-1{
+    background-color: aqua;
+}
+.box-2{
+    background-color: pink;
+}
+
+.box-3{
+    background-color: moccasin;
+} */
+
+
+
+/* -------------------------------------------------------------------------------------- */
+                        /* OWN WORD  */
+
+/* .box{
+    width: 200px;
+    height: 220px;
+    background-color: rgb(214, 92, 61);
+    margin: auto;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    border: 5px green solid; */
+    /* border-radius: 20px; */
+    /* border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px; */
+    /* border-radius: 20px 20px 20px 20px;
+    padding: 10px;
+    border-top-color: blue;
+    border-left-color: green;
+    border-right-color: pink;
+    border-bottom-color: yellow;
+    
+}
+.red{
+    display: flex;
+}
+.hassan{
+    width: 300px;
+    height: 500px; */
+    /* margin: auto; */
+    /* display: flex;
+    justify-content: center;
+    border: 19px solid rebeccapurple;
+    border-top-color: aqua;
+    border-left-color: greenyellow;
+    border-right-color: blue;
+    border-bottom-color: red;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+.hassan:hover{ */
+    /* font-size: 29px; */
+    /* background-color: yellow;
+    
+}
+.hassan:active{
+    border: 4px solid red;
+}
+.hassan:hover{
+   width: 400px;
+   height: 500px;
+    transition: 0.5s ease-out;
+}
+.main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;   
+}
+.box1{
+    box-sizing: border-box;
+} */
+
+
+/* ---------------------------------------------------------------------- */

@@ -1,0 +1,241 @@
+
+body {
+    background-color: rgba(55, 143, 172, 0.746);  
+    box-sizing: border-box;
+    /* padding: 20px; */
+    gap: 20px;
+  }
+/* .cont{
+    display: flex;
+    justify-content: space-between;
+} */
+
+/* .left {
+    float: left;
+    width: 270px;
+    font-size: 130%;
+    font-style: italic;
+    font-family: Georgia, Times, serif;
+    margin: 0px 40px 10px 10px;
+    padding: 10px ;
+    border-top: 1px solid #665544;
+    border-bottom: 1px solid #665544;
+}
+.right {
+    float: right;
+    width: 270px;
+    font-size: 130%;
+    font-style: italic;
+    font-family: Georgia, Times, serif;
+    margin: 0px 40px 10px 10px;
+    padding: 10px;
+    border-top: 1px solid #665544;
+    border-bottom: 1px solid #665544;} */
+
+    
+
+/* #container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  1fr 1fr 1fr 1fr */
+    /* grid-template-rows: 100px 200px 300px 100px; 
+    gap: 10px;
+}
+.item{
+    background-color: rgb(3, 46, 46);
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.header{
+    grid-column-start: 1;
+    grid-column-end:5;
+    background-color: blueviolet;
+}
+
+.sidebar{
+    grid-row-start: 2;
+    grid-row-end: 4;
+    background-color: rgb(241, 160, 53);
+}
+
+.cont-1{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    background-color: cadetblue;
+} */
+
+/* .item-5{
+    background-color: chocolate;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}  */
+/* .footer{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background-color: palevioletred;
+} */
+
+/* ------------------------------------------------------------------------------------ */
+
+
+/* float se content left right per asakhta hy  baki ka content niche ajaaga */
+/* blockquote {
+    float: right;
+    width: 275px;
+    font-size: 130%;
+    font-style: italic;
+    font-family: Georgia, Times, serif;
+    margin: 0px 0px 10px 10px;
+    padding: 10px;
+    border-top: 1px solid #665544;
+    border-bottom: 1px solid #665544;} */
+
+    /* body {
+        width: 750px;
+        font-family: Arial, Verdana, sans-serif;
+        color: #665544;}
+        p {
+        width: 230px;
+        float: left;
+        margin: 5px;
+        padding: 5px;
+        background-color: #efefef;}
+        .clear {
+        clear: left;} */
+/* ------------------------------------------------------------------------ */
+/* girds  m columns or row btana parta hy wo leta hy apne hisab se*/
+.item{
+    background-color: rgb(158, 27, 170);
+    color: white;
+}
+#container{
+    display: grid;
+
+    grid-template-columns: 200px 200px 200px ; 
+    /* fr responsive k liye use hota hy */
+    /* FR fractional unit*/
+    /* 1fr pori screen ki jaga lega */
+    grid-template-columns: 1fr 2fr 1fr; 
+    grid-template-rows: 200px 200px;
+    grid-template-rows: 20fr 3fr;
+    /* gap: 10px; */
+    
+}
+.item1{
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+#container{
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* grid-template-columns: repeat(3, 1fr);  short hand */
+    /* grid-template-rows: 100px 200px 200px 100px; */
+    /* grid-template-rows:repeat(4, 200px); short hand */
+    gap: 10px;
+}
+
+
+.item{
+    background-color: rgb(3, 46, 46);
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.header{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background-color: blueviolet;
+}
+
+.sidebar{
+    grid-row-start: 2;
+    grid-row-end: 4;
+    background-color: rgb(241, 160, 53);
+}
+
+.cont-1{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    background-color: cadetblue;
+}
+
+.item-5{
+    background-color: chocolate;
+}
+
+.footer{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background-color: palevioletred;
+}
+
+
+
+
+
+
+
+/* ------------------------------------------------------ */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Container for the grid */
+  .container {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column for mobile view */
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Grid Item Styling */
+  .navbar, .hero, .about, .contact {
+    padding: 20px;
+    color: white;
+    text-align: center;
+  }
+  
+  .navbar { background-color: #333; }
+  .hero { background-color: #4CAF50; }
+  .about { background-color: #2196F3; }
+  .contact { background-color: #FF5722; }
+  
+  /* Responsive Layout */
+  @media (min-width: 768px) {
+    .container {
+      grid-template-columns: 1fr 1fr; /* 2 columns for tablet view */
+    }
+    
+    /* Span hero section across both columns */
+    .hero {
+      grid-column: 1 / -1;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container {
+      grid-template-columns: 1fr 1fr 1fr; /* 3 columns for desktop view */
+    }
+    
+    /* Full-width hero section, about and contact in separate columns */
+    .hero {
+      grid-column: 1 / -1;
+    }
+  }
+  
+  /* ----------------------------------------------------------------- */
+  
