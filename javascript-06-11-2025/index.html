@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .hidden {display:none;}
+</style>
+<body>
+    
+    <form>
+        ZIP:<br>
+        <input type="text" id="zip" onBlur="fillCity();"><br>
+        City:<br>
+        <input type="text" id="city">
+        </form>
+
+
+
+        <p id="slowLoris">
+            Slow lorises are a group of several species of strepsirrhine primates which make up the genus Nycticebus.
+            <a href="javascript:void(0);" onClick="expandLoris();"><em>Click for more.</em></a>
+            </p>
+
+            
+
+            <img src="blobfish.jpg" id="ugly" onClick="makeInvisible();">
+    <script src="app.js"></script>
+</body>
+</html>
