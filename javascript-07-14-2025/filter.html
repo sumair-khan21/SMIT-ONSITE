@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .card {
+    border: 2px solid black;
+    width: 400px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+    </style>
+</head>
+<body>
+
+    <select name="" id="difficulty">
+        <option value="">All Value</option>
+    </select>
+    <select name="" id="cuisine">
+        <option value="">All value</option>
+    </select>
+ 
+<div id="main">
+</div>
+
+    <script>
+
+let selectDifficulty = document.getElementById("difficulty");
+let selectCuisine = document.getElementById("cuisine");
+let difficulty = [];
+let cuisine = [];
+let allData = [];
+let show = document.getElementById("main");
+let url = `https://dummyjson.com/recipes`;
+
+async function api() {
+  let raw = await fetch(url);
+  let data = await raw.json();
+  // console.log(data);
+  allData = data.recipes;
+    
+  // console.log(allData);
+
+  allData.forEach((element) => {
+    if (!difficulty.includes(element.difficulty)) {
+      difficulty.push(element.difficulty);
+    }
+
+    if (!cuisine.includes(element.cuisine)) {
+      cuisine.push(element.cuisine);
+    }
+
+renderCard(element);
+  });
+
+
+  selectDifficulty.addEventListener("change", selectFilter);
+  selectCuisine.addEventListener("change", selectFilter);
+
+  difficulty.forEach((element) => {
+    selectDifficulty.innerHTML += ` <option value="${element}">${element}</option>`;
+  });
+  cuisine.forEach((element) => {
+    selectCuisine.innerHTML += ` <option value="${element}">${element}</option>`;
+  });
+}
+
+function renderCard(data) {
+  show.innerHTML += `<div class="card">
+      <img  src="${data.image}" alt="" width="200px">
+      <h1>${data.name}</h1>
+      <p>Difficulty: ${data.difficulty}</p>
+      <p>Cuisine: ${data.cuisine}</p>
+      </div>`;
+}
+
+function selectFilter() {
+  let difficultyValue = selectDifficulty.value;
+  let cuisineValue = selectCuisine.value;
+  let a = allData.filter((element) => {
+    if (element.difficulty == difficultyValue) {
+      return element;
+    }
+  });
+
+
+show.innerHTML=""
+ a.forEach((element) => {
+    renderCard(element);
+  });
+}
+
+api();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let selectDifficulty = document.getElementById('difficulty')
+// let selectCuisine = document.getElementById('cuisine')
+// let url = `https://dummyjson.com/recipes`
+// let allData = []
+// let difficulty = []
+// let cuisine = []
+
+// async function api(){
+//     let data = await fetch(url)
+//     let raw = await data.json()
+//     console.log(raw);
+    
+//     allData = raw.recipes
+//     console.log(allData);
+    
+//     allData.forEach(element => {
+//         // console.log(element);
+//         if(!difficulty.includes(element.difficulty)){
+//             difficulty.push(element.difficulty)
+
+//         }
+
+//         if(!cuisine.includes(element.cuisine)){
+//             cuisine.push(element.cuisine)
+//         }
+
+        
+//     });
+
+
+//     difficulty.forEach((ele) =>{
+//         selectDifficulty.innerHTML += `
+//             <option value="${ele}" id="">${ele}</option>
+//  `
+//     })
+
+//     difficulty.forEach((ele) =>{
+//         selectCuisine.innerHTML += `
+//             <option value="${ele}" id="">${ele}</option>
+//  `
+//     })
+//     // console.log(difficulty);
+//     // console.log(cuisine);
+    
+// }
+
+// api()
+
+    </script>
+</body>
+</html>

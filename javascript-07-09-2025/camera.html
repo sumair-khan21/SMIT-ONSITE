@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Capture Image from Camera</title>
+</head>
+<body>
+  <h2>📷 Camera Live Preview + Capture</h2>
+
+  <video id="video" width="100" height="200" autoplay></video>
+  <br>
+  <button onclick="capture()">📸 Capture</button>
+  <br><br>
+  <canvas id="canvas" width="400" height="300"></canvas>
+  <br>
+  <a id="download" download="captured.png">⬇️ Download Image</a>
+
+  <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const download = document.getElementById('download');
+
+    // Camera Access
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        video.srcObject = stream;
+
+      })
+      .catch(error => {
+        alert("Camera access denied or not available.");
+        console.error(error);
+      });
+
+    // Capture Function
+    function capture() {
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      // Set download link
+      download.href = canvas.toDataURL("image/png");
+    }
+  </script>
+</body>
+</html>
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Capture Image Without Canvas</title>
+</head>
+<body>
+  <h2>📷 Capture Image (Mobile Camera)</h2>
+
+  <input type="file" accept="image/*" capture="environment" onchange="previewImage(event)">
+  <br><br>
+
+  <img id="preview" width="300" style="display: none; border: 1px solid #ccc; padding: 5px;" />
+
+  <script>
+    function previewImage(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const imgURL = URL.createObjectURL(file);
+        const img = document.getElementById('preview');
+        img.src = imgURL;
+        img.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html> -->

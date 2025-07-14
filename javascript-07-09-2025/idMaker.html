@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ID Photo Maker - Background Remove</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; background: #f7f7f7; }
+    video, canvas { border: 1px solid #ccc; margin: 10px; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h2>📷 ID Photo Maker + Background Removal</h2>
+
+  <video id="video" width="400" height="300" autoplay></video>
+  <br>
+  <button onclick="capture()">📸 Capture & Remove BG</button>
+  <br><br>
+  <canvas id="canvas" width="400" height="300"></canvas>
+  <br>
+  <a id="download" download="id-photo.png">⬇️ Download ID Photo</a>
+
+  <!-- TensorFlow.js & BodyPix -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.0.5"></script>
+
+  <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const download = document.getElementById('download');
+    let net; // BodyPix model
+
+    // Start camera
+    async function startCamera() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        video.srcObject = stream;
+      } catch (error) {
+        alert("Camera access denied or not available.");
+        console.error(error);
+      }
+    }
+
+    // Load BodyPix model
+    async function loadModel() {
+      net = await bodyPix.load();
+      console.log("BodyPix model loaded");
+    }
+
+    // Capture photo & remove background
+    async function capture() {
+      if (!net) {
+        alert("Model not loaded yet, please wait...");
+        return;
+      }
+
+      // Segment person
+      const segmentation = await net.segmentPerson(video);
+
+      // Create mask: person visible, background transparent
+      const mask = bodyPix.toMask(
+        segmentation,
+        {r:0, g:0, b:0, a:0},        // background transparent
+        {r:255, g:255, b:255, a:255} // person white (can keep original color)
+      );
+
+      // Draw mask to canvas
+      bodyPix.drawMask(
+        canvas,        // destination canvas
+        video,         // source video
+        mask,          // mask data
+        1,             // opacity
+        0,             // blur
+        false          // flip horizontal
+      );
+
+      // Set download link
+      download.href = canvas.toDataURL("image/png");
+    }
+
+    // Init
+    startCamera();
+    loadModel();
+  </script>
+</body>
+</html>
