@@ -84,39 +84,61 @@ function selectFilter() {
   });
 }
 
-function btnn() {
-  //   console.log("click me");
-  allData.forEach((element) => {
-    // console.log(element.name);
-    // console.log(inputValue.value.includes(element.name));
-    let lowerCase1 = inputValue.value.toLowerCase();
+
+inputValue.addEventListener('keyup', ()=>{
+  let lowerCase1 = inputValue.value.toLowerCase();
+  show.innerHTML = "";
+  let match = false
+  allData.forEach((element)=>{
     let lowerCase2 = element.name.toLowerCase();
-    
-    if (lowerCase1.includes(lowerCase2)) {
-      // console.log(element.name);
-      show.innerHTML = "";
-      console.log(element);
-      render(element);
+    if(lowerCase2.includes(lowerCase1)){
+        
+        render(element)
+        match = true
     }
-  });
+  })
 
-// let fil =  allData.find((element) => {
+    if(!match){
+      show.innerHTML = `<p>no recipes found</p>`
+    }
+})
+
+selectDifficulty.value = ""
+selectCuisine.value = ""
+
+// function btnn() {
+//   //   console.log("click me");
+//   allData.forEach((element) => {
 //     // console.log(element.name);
-//    return inputValue.value.toLowerCase()  === element.name.toLowerCase()
+//     // console.log(inputValue.value.includes(element.name));
+//     let lowerCase1 = inputValue.value.toLowerCase();
+//     let lowerCase2 = element.name.toLowerCase();
     
-// }
-
-// )
-// console.log(fil);
-
-
-//  let fil = allData.find((element) => {
-//     // console.log("element.name:", element.name);
-//     return inputValue.value.toLowerCase() === element.name?.toLowerCase();
+//     if (lowerCase1.includes(lowerCase2)) {
+//       // console.log(element.name);
+//       show.innerHTML = "";
+//       console.log(element);
+//       render(element);
+//     }
 //   });
 
-//   console.log("fil:", fil);
-}
+// // let fil =  allData.find((element) => {
+// //     // console.log(element.name);
+// //    return inputValue.value.toLowerCase()  === element.name.toLowerCase()
+    
+// // }
+
+// // )
+// // console.log(fil);
+
+
+// //  let fil = allData.find((element) => {
+// //     // console.log("element.name:", element.name);
+// //     return inputValue.value.toLowerCase() === element.name?.toLowerCase();
+// //   });
+
+// //   console.log("fil:", fil);
+// }
 
 
 
