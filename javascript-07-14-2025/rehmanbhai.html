@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+<style>
+    #main{
+    margin-top: 20px;
+     display: flex;   
+     justify-content: center;
+     align-items: center;
+     gap: 20px;
+     flex-wrap: wrap;
+    }
+    .card{
+        border: 2px solid black;
+    }
+</style>
+</head>
+<body>
+
+    <input type="text" name="" id="inputValue">
+    
+      <select  id="difficulty">
+        <option value="" selected>All Value</option>
+      </select>
+      
+      <select  id="cuisine">
+        <option value="" selected>All Value</option>
+      </select>
+
+
+      <div id="main">
+         
+        
+      </div>
+
+    <script>
+        let url = `https://dummyjson.com/recipes`;
+        let allData = []
+        let difficulty = []
+        let cuisine = []
+        let selectDifficulty = document.getElementById('difficulty')
+        let selectCuisine = document.getElementById('cuisine')
+        let show =  document.getElementById('main')
+        let inputValue = document.getElementById('inputValue')
+
+        async function  fetchData(){
+            let data = await fetch(url)
+            let raw = await data.json()
+
+            allData = raw.recipes;
+
+            allData.forEach((ele)=>{
+                 
+
+                 if(!difficulty.includes(ele.difficulty)){
+                    difficulty.push(ele.difficulty)
+                }
+                
+                if(!cuisine.includes(ele.cuisine)){
+                    cuisine.push(ele.cuisine)
+                }
+
+                render(ele)
+            })
+
+   selectDifficulty.addEventListener('change', filter)
+   selectCuisine.addEventListener('change', filter)
+
+
+
+difficulty.forEach((ele)=>{
+    selectDifficulty.innerHTML += `
+    <option value="${ele}" >${ele}</option>
+    `
+})
+
+cuisine.forEach((ele)=>{
+    selectCuisine.innerHTML += `
+    <option value="${ele}" >${ele}</option>
+    `
+})
+        }
+
+
+        function render(data){
+       show.innerHTML += `
+          <div class="card">
+            <img width="200px" src="${data.image}" alt="">
+        <h1>${data.name}</h1>
+        <p>difficulty: ${data.difficulty}</p>
+        <p>cuisine: ${data.cuisine}</p>
+        </div>
+       `
+
+        }
+
+
+
+        function filter(){
+            let difficultyValue = selectDifficulty.value
+            console.log(difficultyValue);
+            let cuisineValue = selectCuisine.value
+            console.log(cuisineValue);
+ 
+            let a = allData.filter((element)=>{
+
+                 return(
+                  (difficultyValue == "" || element.difficulty == difficultyValue) &&
+                  (cuisineValue == "" || element.cuisine == cuisineValue)
+            )
+
+            })
+
+            show.innerHTML = "";
+            a.forEach((data)=>{
+                render(data)
+            })
+           
+        }
+
+        
+    inputValue.addEventListener('keyup', ()=>{
+        let userValue = inputValue.value.toLowerCase();
+        show.innerHTML = ""
+        let match = false
+        allData.forEach((ele)=>{
+            let dataValue = ele.name.toLowerCase();
+            if(dataValue.includes(userValue)){
+                render(ele)
+                match = true;
+            }
+        })
+        if(!match){
+            show.innerHTML = `<p>no recipes found</p>`
+        }
+    })
+
+    
+        fetchData()
+    </script>
+</body>
+</html>

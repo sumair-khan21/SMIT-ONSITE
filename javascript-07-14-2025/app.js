@@ -49,7 +49,7 @@ async function api() {
   });
   // console.log(difficulty);
   // console.log(cuisine);
-}
+  }
 
 function render(data) {
   show.innerHTML += `
@@ -65,8 +65,9 @@ function render(data) {
 
 function selectFilter() {
   let difficultyValue = selectDifficulty.value;
+  console.log(difficultyValue)
   let cuisineValue = selectCuisine.value;
-  //   console.log(difficultyValue);
+    console.log(cuisineValue);
 
   let a = allData.filter((element) => {
     return (

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="full_name">
+    <input type="email" name="" id="email">
+    <input type="date" name="" id="dob">
+    <input type="number" name="" id="id">
+
+
+
+    <button id="senddata"> Data Send</button>
+    <script type="module">
+
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+        const supabaseUrl = 'https://bdwwgeghpfkyenccolmv.supabase.co'
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJkd3dnZWdocGZreWVuY2NvbG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI4MTQzNzEsImV4cCI6MjA2ODM5MDM3MX0.i_TLflq-yJK_lxiZeLZ6g1w5htmndJW59JnsB5LrEZY'
+        const supabase = createClient(supabaseUrl, supabaseKey)
+
+
+        // let senddata = document.getElementById('senddata')
+
+        // // const full_name = document.getElementById('full_name')
+        // // const email = document.getElementById('email')
+        // // const dob = document.getElementById('dob')
+        // // const student_id = document.getElementById('id')
+
+        // async function render() {
+        //     const full_name = "Abdul Rehamn"
+        //     const email = "abdulrehman@gmail.com"
+        //     const dob = "01/2/2004"
+        //     const student_id = 452
+
+        //     const { error } = await supabase
+        //         .from('user_details')
+        //         .insert({ full_name, email, dob, student_id })
+
+        // }
+
+        // senddata.addEventListener('click', render)
+
+        const { data, error } = await supabase
+            .from('user_details')
+            .select()
+
+        console.log(data)
+
+    </script>
+</body>
+
+</html>
