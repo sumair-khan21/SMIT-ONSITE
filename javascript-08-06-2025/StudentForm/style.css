@@ -1,0 +1,23 @@
+ body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    .form-group {
+      margin-bottom: 12px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      box-sizing: border-box;
+    }
+    #loader {
+      display: none;
+      margin-top: 15px;
+      color: green;
+      font-weight: bold;
+    }
