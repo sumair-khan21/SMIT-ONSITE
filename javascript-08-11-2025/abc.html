@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body>
+    <div id="qrcode"></div>
+
+    <script type="text/javascript">
+        // Generate QR code directly in the div
+        QRCode.toCanvas(document.getElementById("qrcode"), "sdfasfdsaf", function (error) {
+            if (error) console.error(error);
+            console.log("QR code generated!");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download ID Card as PDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      #formContainer {
+        text-align: center;
+      }
+      input {
+        padding: 8px;
+        margin: 10px 0;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      #idCardCanvas {
+        border: 1px solid #333;
+        display: block;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Generate Your ID Card and Download as PDF</h2>
+
+    <!-- Form for user input -->
+    <div id="formContainer">
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your Name"
+        required
+      /><br />
+      <input
+        type="text"
+        id="fatherName"
+        placeholder="Enter Father's Name"
+        required
+      /><br />
+      <input
+        type="text"
+        id="address"
+        placeholder="Enter your Address"
+        required
+      /><br />
+      <input type="file" id="imageInput" accept="image/*" /><br />
+      <button onclick="generateIDCard()">Generate ID Card</button>
+    </div>
+
+    <!-- Canvas for ID card -->
+    <canvas id="idCardCanvas" width="400" height="300"></canvas>
+
+    <!-- Button to generate PDF -->
+    <button
+      id="generatePDFButton"
+      style="display: none"
+      onclick="downloadPDF()"
+    >
+      Download ID Card as PDF
+    </button>
+
+    <script>
+      // Function to generate the ID Card
+      function generateIDCard() {
+        const name = document.getElementById("name").value;
+        const fatherName = document.getElementById("fatherName").value;
+        const address = document.getElementById("address").value;
+        const imageInput = document.getElementById("imageInput").files[0];
+
+        if (name && fatherName && address) {
+          // Get canvas element
+          const canvas = document.getElementById("idCardCanvas");
+          const ctx = canvas.getContext("2d");
+
+          // Clear the canvas
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          // Set background color
+          ctx.fillStyle = "#f4f4f4";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+          // Draw ID Card border
+          ctx.strokeStyle = "red";
+          ctx.lineWidth = 3;
+          ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+          // Add Name Text
+          ctx.font = "22px Arial";
+          ctx.fillStyle = "#333";
+          ctx.fillText("Name: " + name, 20, 40);
+
+          // Add Father's Name Text
+          ctx.font = "20px Arial";
+          ctx.fillText("Father's Name: " + fatherName, 20, 80);
+
+          // Add Address Text
+          ctx.font = "20px Arial";
+          ctx.fillText("Address: " + address, 20, 120);
+
+          // If image is selected, draw it on canvas
+          if (imageInput) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const img = new Image();
+              img.onload = function () {
+                // Image placement on canvas (position x = 250, y = 160, width = 80, height = 80)
+                ctx.drawImage(img, 250, 160, 80, 80); // Adjusted for better placement
+              };
+              img.src = e.target.result;
+            };
+            reader.readAsDataURL(imageInput);
+          }
+
+          // Show the "Download PDF" button after ID card is generated
+          document.getElementById("generatePDFButton").style.display =
+            "inline-block";
+        } else {
+          alert("Please fill all fields.");
+        }
+      }
+
+      // Function to generate and download PDF
+      function downloadPDF() {
+        const { jsPDF } = window.jspdf;
+
+        // Get canvas image data
+        const canvas = document.getElementById("idCardCanvas");
+        const canvasData = canvas.toDataURL("image/png");
+
+        // Create a new PDF document
+        const doc = new jsPDF();
+
+        // Add the canvas image to the PDF
+        //  doc.addImage(canvasData, "PNG", 10, 10, 180, 120); // Position and size
+
+        //  // Add text to the PDF (for Name, Father's Name, etc.)
+        //  doc.setFontSize(12);
+        //  doc.text("Name: ", +document.getElementById("name").value, 10, 40);
+        //  doc.text("Father's Name: " + document.getElementById("fatherName").value,10,50);
+        //  doc.text("Address: " + document.getElementById("address").value,10 60
+        //  );
+
+        // Save the PDF with a filename
+        //  doc.save("id_card.pdf");
+
+        // Set font to bold
+        doc.setFont("helvetica", "bold");
+        doc.text("Name: ", 10, 40);
+
+        // Set font back to normal
+        doc.setFont("helvetica", "normal");
+        doc.text(document.getElementById("name").value, 35, 40);
+
+        // Repeat for Father's Name
+        doc.setFont("helvetica", "bold");
+        doc.text("Father's Name: ", 10, 50);
+
+        // Set font back to normal
+        doc.setFont("helvetica", "normal");
+        doc.text(document.getElementById("fatherName").value, 55, 50);
+
+        // Repeat for Address
+        doc.setFont("helvetica", "bold");
+        doc.text("Address: ", 10, 60);
+
+        // Set font back to normal
+        doc.setFont("helvetica", "normal");
+        doc.text(document.getElementById("address").value, 35, 60);
+
+        doc.save("id_card.pdf");
+      }
+    </script>
+  </body>
+</html>
