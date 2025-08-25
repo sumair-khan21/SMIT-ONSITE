@@ -34,7 +34,6 @@ if (adminForm) {
 
 async function show() {
     let stdData = document.getElementById("stdData");
-
     let { data, error } = await client.from("adminForm").select("*");
     if (error) {
         console.log(error.message);
@@ -48,7 +47,6 @@ async function show() {
         stdData.innerHTML += `
             <div>
                 <input type="${item.category}" placeholder="${item.label}" id="${item.label}">
-                
             </div>
             `
     })
@@ -57,7 +55,6 @@ async function show() {
 show()
 
 let userData = document.getElementById("userData");
-
 if (userData) {
     userData.addEventListener("click", async (e) => {
         let data1 = {};
