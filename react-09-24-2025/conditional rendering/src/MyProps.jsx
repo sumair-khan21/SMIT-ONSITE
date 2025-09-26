@@ -6,7 +6,7 @@ const MyProps = () => {
         lastname: "",
         tomato: false,
         onion: false,
-        fruit:"apple"
+        fruit:""
     })
 
     const handleChanged = (e) => {
