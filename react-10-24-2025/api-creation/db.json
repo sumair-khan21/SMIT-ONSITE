@@ -1,0 +1,161 @@
+{
+  "users": [
+    {
+      "id": "2",
+      "title": "API creation",
+      "author": "Umer"
+    },
+    {
+      "id": "3",
+      "title": "Learning JSON",
+      "author": "Owais"
+    },
+    {
+      "id": "4",
+      "title": "Frontend Practice",
+      "author": "Ali"
+    },
+    {
+      "id": "7",
+      "title": "React Components",
+      "author": "Hassan"
+    },
+    {
+      "id": "9",
+      "title": "Building API",
+      "author": "Hamza"
+    },
+    {
+      "id": "10",
+      "title": "JavaScript Objects",
+      "author": "Laiba"
+    },
+    {
+      "id": "3c6f",
+      "title": "SMIT",
+      "author": "Saylani Mass IT Training"
+    },
+    {
+      "id": "a247",
+      "title": "SMIT",
+      "author": "Saylani Mass IT Training"
+    },
+    {
+      "id": "d052",
+      "title": "SMIT",
+      "author": "Saylani Mass IT Training"
+    },
+    {
+      "id": "2dd4",
+      "title": "SMIT",
+      "author": "Saylani Mass IT Training"
+    },
+    {
+      "id": "a342",
+      "title": "SMIT",
+      "author": "Saylani Mass IT Training"
+    },
+    {
+      "id": "2f93",
+      "title": "SMIT",
+      "author": "Saylani Mass IT Training"
+    },
+    {
+      "id": "a6fa",
+      "title": "SMIT",
+      "author": "Saylani Mass IT Training"
+    },
+    {
+      "id": "ff39",
+      "title": "SMIT",
+      "author": "Saylani Mass IT Training"
+    },
+    {
+      "id": "e65d",
+      "title": "SMIT",
+      "author": "Saylani Mass IT Training"
+    },
+    {
+      "id": "a0a2",
+      "title": "hello my",
+      "author": "API"
+    },
+    {
+      "id": "ca49",
+      "title": "aaasss",
+      "author": "sss"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "postId": 1,
+      "body": "Nice Post Sumair!"
+    },
+    {
+      "id": "2",
+      "postId": 11111,
+      "body": "ok"
+    },
+    {
+      "id": "4",
+      "postId": 2,
+      "body": "API creation samajh agayi 👏"
+    },
+    {
+      "id": "5",
+      "postId": 3,
+      "body": "JSON learning easy lag rahi hai ab"
+    },
+    {
+      "id": "6",
+      "postId": 4,
+      "body": "Frontend practice kar ke maza aya!"
+    },
+    {
+      "id": "7",
+      "postId": 5,
+      "body": "Fetch explaination simple thi"
+    },
+    {
+      "id": "8",
+      "postId": 6,
+      "body": "Async Await clear hua finally"
+    },
+    {
+      "id": "9",
+      "postId": 7,
+      "body": "React components bohot ache!"
+    },
+    {
+      "id": "10",
+      "postId": 8,
+      "body": "Node.js is powerful!"
+    },
+    {
+      "id": "11",
+      "postId": 9,
+      "body": "API building practice karni hai"
+    },
+    {
+      "id": "12",
+      "postId": 10,
+      "body": "JS objects samajh gaye 🔥"
+    },
+    {
+      "id": "2",
+      "postId": 1,
+      "body": "Updated!"
+    },
+    {
+      "id": "df6f",
+      "postId": 1,
+      "body": "Updated!"
+    },
+    {
+      "id": "b9ce",
+      "title": "hehehehehe",
+      "author": "hehehehehe"
+    }
+  ]
+}
