@@ -50,6 +50,8 @@
 const express = require('express')
 const data = require('./data.json')
 const app = express()
+app.use(express.json());
+
 // console.log(app);
 
 
@@ -58,6 +60,17 @@ app.get('/', (req, res)=>{
         res.send(data);
 
 })
+
+
+
+app.post('/car', (req, res)=>{
+    // res.send("Hello from express server");
+        // res.send(data);
+        const {make,model,year,color,mileage_km,city,price_usd,owner_name,is_available} = req.body
+        res.send("Car name is " + make + " " + model + " of year " + year);
+
+})
+
 
 app.listen(8000, ()=>{
     console.log("Server is running at 3000 port");
