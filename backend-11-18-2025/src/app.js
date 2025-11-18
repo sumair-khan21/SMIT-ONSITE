@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const data = require('./data.json')
 const fs = require('fs')
+app.use(express.json());  
 // TCP connection client or server k beech ka relation  Transmission Control Protocol,  client se req ja k server jb response deta hy toh ek hi response milta hy or phr TCP close ho jata hy
 // web sokets m tcp close nhi hota real time data milta hy  ek k bad ek resp handle kr sakhta hay
 
@@ -149,26 +150,59 @@ const fs = require('fs')
 
 
 
-const token = 123
+// const token = 123
 
-app.use('/products', (req, res, next)=>{
-    const authCheck  = token === 1235;
-    if(!authCheck){
-        res.status(401).send("Unauth access")
-    }else{
-        next()
+// app.use('/products', (req, res, next)=>{
+//     const authCheck  = token === 1235;
+//     if(!authCheck){
+//         res.status(401).send("Unauth access")
+//     }else{
+//         next()
+//     }
+// },
+
+// (req, res)=>{
+//     res.send("This is all products routes")
+// }
+
+
+
+// )
+
+
+
+
+
+app.use('/user', (req, res)=>{
+    if(req.method == "GET"){
+        res.json({
+            message: "All Users",
+            data: data
+        })
     }
-},
+    else if(req.method == "POST"){
+        const { name, email, age, role } = req.body
+        const newUser = {id: Date.now(), name, email, age, role}
+        data.push(newUser)
+        res.json({
+            message: "User created",
+            data: newUser
+        })
+    }
+    else if(req.method == "PUT"){
+        res.json({message: "udpate user"})
+    }
+    else if(req.method == "DELETE"){
+        res.json({message: "user delete"})
+    }
+    else if(req.method == "PATCH"){
+        res.json({ message: "Partial update" });
+    }else{
+        res.status(405).json({message:"Method not allowed"})
+    }
+})
 
-(req, res)=>{
-    res.send("This is all products routes")
-}
 
-
-
-)
-
-
-app.listen(3000, (req, res)=>{
+app.listen(3000, ()=>{
     console.log("Server running on 3000 port");
 })
