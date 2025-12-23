@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const {Schema} = mongoose;
 const validator = require('validator');
 
@@ -20,6 +19,8 @@ const userSchema = new Schema({
         unique: true,
         lowercase: true,
         trim: true,
+
+
 
         validate(value){        
            if(!validator.isEmail(value)){
@@ -90,10 +91,9 @@ const userSchema = new Schema({
 
     }
 
-}, {
-    collection: 'users',
-    timestamps: true
-})
+},
+
+)
 
 const User = mongoose.model('User', userSchema);
 
