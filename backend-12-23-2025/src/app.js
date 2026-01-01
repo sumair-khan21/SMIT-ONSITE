@@ -52,7 +52,9 @@ app.post('/login', async (req, res)=>{
         // res.cookie("id", user._id, {  expires: new Date(Date.now() + 60 * 1000),  })
         //jwt token can be added here for further security
         const token = jwt.sign({id: user._id}, process.env.JWT_SECRET || "secretkey", {expiresIn: '1h'});
+        res.cookie("token", token, { httpOnly: true, expires: new Date(Date.now() + 60 * 60 * 1000) }) // 1 hour expiry
         res.status(200).json({message: "Login successful", data: user, token})
+        // res.status(200).json({message: "Login successful", data: user, token})
     } catch (error) {
         res.status(400).json({ message: "Bad Request", error: error.message })
     }
@@ -82,13 +84,19 @@ app.get('/profile', async (req, res)=>{
         //     throw new Error("Unauthorized Access");
         // }
 
-        const token = req.headers.authorization.split(' ')[1];
-        console.log("token ----------> ", token);
+        // const token = req.headers.authorization.split(' ')[1];
+        // console.log("token ----------> ", token);
+
+
+        const token = req.cookies.token;
+        if (!token) {
+            throw new Error("Unauthorized Access");
+        }
         
         const decoded = jwt.verify(token, process.env.JWT_SECRET || "secretkey");
         const userId = decoded.id;
 
-        const user = await User.findById(userId);
+        const user = await User.findById(userId).select('-password');
         if (!user) {
             throw new Error("User not found");
         }
