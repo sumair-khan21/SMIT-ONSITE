@@ -1,0 +1,40 @@
+body {
+  background: linear-gradient(135deg, #0a0a23 0%, #000 100%);
+  color: #e3e8ee;
+  font-family: var(--font-geist-sans, 'Inter', sans-serif);
+  margin: 0;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+a, button {
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+a:hover, button:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 2px 12px #1e2746cc;
+}
+
+input, textarea {
+  font-family: inherit;
+  background: #131a2b;
+  color: #e3e8ee;
+  border: none;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+input:focus, textarea:focus {
+  box-shadow: 0 0 0 2px #1e2746;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #131a2b;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2746;
+  border-radius: 8px;
+}
+
